@@ -19,3 +19,11 @@ class EventInput:
     end: date
     description: Optional[str]
 
+
+@strawberry.type
+class EventForCard:
+    begin: date
+    end: date
+    description: Optional[str]
+
+
