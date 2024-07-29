@@ -11,7 +11,7 @@ async def get_employee(employee_id: int) -> Optional[EmployeeCard]:
                                   f"/employee/card/{employee_id}")
     employee = EmployeeInput(**employee_data["employee"])
     events = [EventForCard(**event) for event in employee_data["events"]]
-    print(employee_data)
+
     return EmployeeCard(employee=employee, events=events)
 
 

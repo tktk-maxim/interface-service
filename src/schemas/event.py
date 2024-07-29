@@ -6,24 +6,24 @@ from datetime import date
 @strawberry.type
 class Event:
     id: int
-    employee: int
-    begin: date
-    end: date
-    description: Optional[str]
+    employee_id: int
+    begin: str
+    end: str
+    description: Optional[str] = ""
 
 
 @strawberry.input
 class EventInput:
-    employee: int
-    begin: date
-    end: date
-    description: Optional[str]
+    employee_id: int
+    begin: str
+    end: str
+    description: Optional[str] = ""
 
 
 @strawberry.type
 class EventForCard:
-    begin: date
-    end: date
-    description: Optional[str]
+    begin: str
+    end: str
+    description: Optional[str] = ""
 
 

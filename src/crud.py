@@ -10,6 +10,14 @@ async def get_obj(url):
         return response.json()
 
 
+async def update_obj_param(url: str, data: dict):
+    async with httpx.AsyncClient() as client:
+        response = await client.patch(url=url, json=data)
+        if response.status_code != 200:
+            raise HTTPException(status_code=response.status_code, detail=response.text)
+        return response.json()
+
+
 async def create_obj(url: str, data: dict):
     async with httpx.AsyncClient() as client:
         response = await client.post(url=url, json=data)

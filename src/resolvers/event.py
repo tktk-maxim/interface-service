@@ -18,8 +18,10 @@ async def get_events() -> List[Event]:
 
 
 async def create_event_view(event: EventInput) -> Optional[Event]:
+    print(event)
     event_data = await create_obj(f"http://{settings.user_service_host}:{settings.user_service_port}"
                                   f"/event/create/", data=event.__dict__)
+
     return Event(**event_data)
 
 

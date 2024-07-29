@@ -9,7 +9,7 @@ from schemas.employee import Employee, EmployeeCard
 class Query:
     employee: EmployeeCard = strawberry.field(resolver=get_employee)
     employees: List[Employee] = strawberry.field(resolver=get_employees)
-    search_employee: List[Employee] = strawberry.field(resolver=search_employee_view)
+    search_employees: List[Employee] = strawberry.field(resolver=search_employee_view)
 
 
 @strawberry.type
