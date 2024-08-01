@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     task_service_host: str
     task_service_port: str
 
+    auth_jwt_key: str
+    auth_jwt_algorithm: str
+
     class Config:
         env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
 

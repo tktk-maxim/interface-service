@@ -14,6 +14,8 @@ from gql.event import Mutation as EventMutation
 from gql.subdivision import Query as SubdivisionQuery
 from gql.subdivision import Mutation as SubdivisionMutation
 
+from auth.gql import Mutation as AuthMutation
+
 
 @strawberry.type
 class Query(ProjectQuery, TaskQuery, SubdivisionQuery, EventQuery, EmployeeQuery):
@@ -21,7 +23,7 @@ class Query(ProjectQuery, TaskQuery, SubdivisionQuery, EventQuery, EmployeeQuery
 
 
 @strawberry.type
-class Mutation(ProjectMutation, TaskMutation, SubdivisionMutation, EventMutation, EmployeeMutation):
+class Mutation(ProjectMutation, TaskMutation, SubdivisionMutation, EventMutation, EmployeeMutation, AuthMutation):
     pass
 
 

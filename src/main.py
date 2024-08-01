@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from strawberry.asgi import GraphQL
 
+from fastapi import APIRouter, Depends
+
 from schema import schema
 
 app = FastAPI()
