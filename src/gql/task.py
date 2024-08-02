@@ -4,6 +4,7 @@ from resolvers.task import (get_task, get_tasks, create_task_view,
                             update_task_view, delete_task_view, search_task_view, assign_task_employee_view,
                             add_hours_spent_view, filter_tasks_view, sort_tasks_view)
 from schemas.task import Task
+from auth.middleware import IsAuthenticated
 
 
 @strawberry.type
