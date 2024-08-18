@@ -14,6 +14,8 @@ class Employee:
     email: str
     subdivision_id: int
     leader: Optional[bool] = False
+    chat_id: int | None = 0
+    telegram_name: str
 
 
 @strawberry.input
@@ -26,6 +28,8 @@ class EmployeeInput:
     email: str
     subdivision_id: int
     leader: Optional[bool] = False
+    chat_id: int | None = 0
+    telegram_name: str
 
 
 @strawberry.input
@@ -35,6 +39,7 @@ class SearchEmployeeInput:
     middle_name: Optional[str] = None
     login: Optional[str] = ""
     email: Optional[str] = ""
+    telegram_name: Optional[str] = ""
 
 
 @strawberry.type

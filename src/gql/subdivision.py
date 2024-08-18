@@ -16,8 +16,7 @@ class Query:
 
 @strawberry.type
 class Mutation:
-    create_subdivision: Subdivision = strawberry.mutation(resolver=create_subdivision_view,
-                                                          permission_classes=[IsAuthenticated])
+    create_subdivision: Subdivision = strawberry.mutation(resolver=create_subdivision_view)
 
     update_subdivision: Subdivision = strawberry.mutation(resolver=update_subdivision_view,
                                                           permission_classes=[IsAuthenticated])

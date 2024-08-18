@@ -14,6 +14,7 @@ class Task:
     employee_id: Optional[int] = None
     done: bool | Optional[bool] = False
     project_id: int
+    date_of_receiving: Optional[str] = None
 
 
 @strawberry.input
@@ -26,6 +27,7 @@ class TaskInput:
     employee_id: Optional[int] = None
     done: bool | Optional[bool] = False
     project_id: int
+    date_of_receiving: Optional[str] = None
 
 
 @strawberry.input

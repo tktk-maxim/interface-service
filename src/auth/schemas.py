@@ -13,6 +13,8 @@ class UserSchema:
     subdivision_id: int
     leader: bool | None = False
     active: bool | None = True
+    chat_id: int | None = None
+    telegram_name: str
 
 
 @strawberry.type
