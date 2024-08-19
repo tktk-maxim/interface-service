@@ -9,6 +9,8 @@ from jwt.exceptions import InvalidTokenError
 from .utils import decode_jwt, encode_jwt
 from config import settings
 from .schemas import UserSchema, TokenInfo
+from datetime import datetime, timedelta
+import pytz
 
 
 def get_user(login: str, password: str) -> UserSchema:
@@ -87,13 +89,18 @@ def auth_user_issue_jwt(
         password: str
 ) -> TokenInfo:
 
-    user: UserSchema = validate_auth_user(login,password)
+    user: UserSchema = validate_auth_user(login, password)
+
+    utc_time = datetime.now(pytz.utc)
+    moscow_tz = pytz.timezone('Europe/Moscow')
+    moscow_time = utc_time.astimezone(moscow_tz)
 
     jwt_payload = {
         "sub": user.login,
         "login": user.login,
         "password": user.password,
         "email": user.email,
+        "exp": (moscow_time + timedelta(minutes=settings.auth_jwt_expire_minutes))
     }
 
     token = encode_jwt(jwt_payload)

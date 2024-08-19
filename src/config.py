@@ -14,6 +14,7 @@ class Settings(BaseSettings):
 
     auth_jwt_key: str
     auth_jwt_algorithm: str
+    auth_jwt_expire_minutes: int
 
     class Config:
         env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
