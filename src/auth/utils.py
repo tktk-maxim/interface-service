@@ -1,4 +1,4 @@
-import jwt
+from jwt import encode, decode
 from config import settings
 
 
@@ -8,7 +8,7 @@ def encode_jwt(
     algorithm: str = settings.auth_jwt_algorithm,
 ) -> str:
     to_encode = payload.copy()
-    encoded = jwt.encode(
+    encoded = encode(
         to_encode,
         key,
         algorithm=algorithm,
@@ -21,7 +21,7 @@ def decode_jwt(
     key: str = settings.auth_jwt_key,
     algorithm: str = settings.auth_jwt_algorithm,
 ) -> dict:
-    decoded = jwt.decode(
+    decoded = decode(
         token,
         key,
         algorithms=[algorithm],

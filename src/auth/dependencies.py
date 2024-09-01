@@ -4,7 +4,7 @@ from strawberry.types import Info
 from fastapi import HTTPException, status
 import httpx
 
-from jwt.exceptions import InvalidTokenError
+# from jwt import InvalidTokenError
 
 from .utils import decode_jwt, encode_jwt
 from config import settings
@@ -50,10 +50,10 @@ def get_current_token_payload(token: str) -> dict:
             token=token,
         )
 
-    except InvalidTokenError as e:
+    except HTTPException:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=f"invalid token error: {e}",
+            detail=f"invalid token error",
         )
     return payload
 

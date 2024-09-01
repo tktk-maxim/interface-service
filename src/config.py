@@ -9,6 +9,9 @@ class Settings(BaseSettings):
 
     run_test: bool
 
+    host: str
+    host_port: str
+
     task_service_host: str
     task_service_port: str
 

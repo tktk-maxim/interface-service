@@ -1,0 +1,20 @@
+
+services:
+  api:
+    build: ./
+    image: tktkmaxim/interface-service:latest
+    container_name: api-interface-service
+    working_dir: /src
+    command: >
+      sh -c "uvicorn main:app --host ${HOST} --port ${HOST_PORT}"
+    networks:
+      - my-network
+    ports:
+      - "${HOST_PORT}:${HOST_PORT}"
+    env_file:
+      - .env
+
+networks:
+  my-network:
+    driver: bridge
+    external: true

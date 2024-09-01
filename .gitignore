@@ -2,3 +2,5 @@
 __pycache__/
 .env
 /.coverage
+.gitlab-ci.yml
+docker-compose-cd.yml
